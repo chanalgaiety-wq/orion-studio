@@ -1022,7 +1022,7 @@ img{ max-width: 100%; display: block; }
 .lead__content{
   padding: 26px 22px;
   display: grid;
-  gap: 12px;
+  gap: 16px;              /* было 12 */
   align-content: start;
 }
 .lead__title{
@@ -1044,9 +1044,20 @@ img{ max-width: 100%; display: block; }
 .form__label{
   font-size: 13px;
   color: var(--muted);
-  margin-top: 4px;
+  margin-top: 10px;       /* было 4 */
+  margin-bottom: 6px;
+  display: block;
 }
 
+.lead__content input,
+.lead__content select{
+  margin-top: 4px;        /* чтобы поля не липли к тексту */
+}
+
+.agree{
+  margin-top: 6px;        /* отодвинем чекбокс вниз */
+  line-height: 1.35;
+}
 .agree{
   display: flex;
   gap: 10px;
