@@ -14,7 +14,7 @@ if (burger && nav) {
 
   nav.addEventListener("click", (e) => {
     const target = e.target;
-    if (target.tagName === "A") {
+    if (target && target.tagName === "A") {
       nav.classList.remove("is-open");
       burger.setAttribute("aria-expanded", "false");
     }
@@ -48,6 +48,22 @@ function closeModalVideo() {
   modalVideo.load();
 }
 
+// Делегирование для открытия/закрытия видео (если есть на странице)
+document.addEventListener("click", (e) => {
+  const openBtn = e.target.closest("[data-open-video]");
+  if (openBtn) {
+    e.preventDefault();
+    const src = openBtn.getAttribute("data-open-video");
+    if (src) openModalVideo(src);
+    return;
+  }
+
+  const closeBtn = e.target.closest("[data-close-modal]");
+  if (closeBtn) {
+    e.preventDefault();
+    closeModalVideo();
+  }
+});
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeModalVideo();
@@ -223,7 +239,6 @@ loadTrack(0);
     track.scrollTo({ left, behavior: "smooth" });
   }
 
-  // dots
   dotsWrap.innerHTML = slides.map((_, i) =>
     `<button class="carousel__dot" type="button" aria-label="Слайд ${i+1}"></button>`
   ).join("");
@@ -237,43 +252,56 @@ loadTrack(0);
   prev.addEventListener("click", () => centerTo(active - 1));
   next.addEventListener("click", () => centerTo(active + 1));
 
-  // старт со 2-го, чтобы были края слева/справа
   const startIndex = slides.length >= 3 ? 1 : 0;
   centerTo(startIndex);
 })();
 
-
-
-
-
-
-// ===== LEAD MODAL (open/close + submit) =====
+// ===== LEAD MODAL (open/close + submit) + service name =====
 (function initLeadModal(){
-  const leadModal = document.getElementById('leadModal');
+  const leadModal = document.getElementById("leadModal");
   if (!leadModal) return;
 
+  function setSelectedService(name) {
+    try { sessionStorage.setItem("lead_service", name || ""); } catch {}
+  }
+  function getSelectedService() {
+    try { return sessionStorage.getItem("lead_service") || ""; } catch { return ""; }
+  }
+
   function openLeadModal() {
-    leadModal.classList.add('is-open');
-    leadModal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
+    leadModal.classList.add("is-open");
+    leadModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
   }
 
   function closeLeadModal() {
-    leadModal.classList.remove('is-open');
-    leadModal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
+    leadModal.classList.remove("is-open");
+    leadModal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
   }
 
   // open / close buttons
-  document.addEventListener('click', (e) => {
-    const openBtn = e.target.closest('[data-lead-open]');
+  document.addEventListener("click", (e) => {
+    const openBtn = e.target.closest("[data-lead-open]");
     if (openBtn) {
       e.preventDefault();
+
+      // 1) если явно указали услугу атрибутом
+      let serviceName = openBtn.getAttribute("data-service-name");
+
+      // 2) иначе попробуем вытащить заголовок карточки услуги
+      if (!serviceName) {
+        const card = openBtn.closest("[data-service], .price-card");
+        const titleEl = card?.querySelector(".price-card__title");
+        serviceName = titleEl?.textContent?.trim() || "";
+      }
+
+      setSelectedService(serviceName);
       openLeadModal();
       return;
     }
 
-    const closeBtn = e.target.closest('[data-lead-close]');
+    const closeBtn = e.target.closest("[data-lead-close]");
     if (closeBtn) {
       e.preventDefault();
       closeLeadModal();
@@ -281,60 +309,58 @@ loadTrack(0);
   });
 
   // ESC closes lead modal
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeLeadModal();
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeLeadModal();
   });
 
-  // submit form (если форма есть)
-  const leadForm = leadModal.querySelector('[data-lead-form]');
+  // submit form
+  const leadForm = leadModal.querySelector("[data-lead-form]");
   if (!leadForm) return;
 
-  leadForm.addEventListener('submit', async (e) => {
+  leadForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const btn = leadForm.querySelector('button[type="submit"]');
     const originalText = btn?.textContent;
 
-    btn?.setAttribute('disabled', 'disabled');
-    if (btn) btn.textContent = 'Отправляем...';
+    btn?.setAttribute("disabled", "disabled");
+    if (btn) btn.textContent = "Отправляем...";
 
     const formData = new FormData(leadForm);
     const payload = {
-      name: (formData.get('name') || '').toString().trim(),
-      phone: (formData.get('phone') || '').toString().trim(),
-      channel: (formData.get('channel') || '').toString().trim(),
-      hp: (formData.get('hp') || '').toString().trim(),
-      page: location.pathname
+      name: (formData.get("name") || "").toString().trim(),
+      phone: (formData.get("phone") || "").toString().trim(),
+      channel: (formData.get("channel") || "").toString().trim(),
+      hp: (formData.get("hp") || "").toString().trim(),
+      page: location.pathname,
+      service: getSelectedService()
     };
 
     try {
-      const r = await fetch('/api/lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const r = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
       });
 
       const j = await r.json().catch(() => ({}));
-      if (!r.ok || !j.ok) throw new Error(j.error || 'Send failed');
+      if (!r.ok || !j.ok) throw new Error(j.error || "Send failed");
 
-      if (btn) btn.textContent = 'Готово ✅';
+      if (btn) btn.textContent = "Готово ✅";
       leadForm.reset();
+      setSelectedService("");
 
       setTimeout(() => {
         closeLeadModal();
-        if (btn) btn.textContent = originalText || 'Оставить заявку';
+        if (btn) btn.textContent = originalText || "Оставить заявку";
       }, 800);
 
     } catch (err) {
       console.error(err);
-      alert('Не получилось отправить заявку. Напишите нам в Telegram 🙏');
-      if (btn) btn.textContent = originalText || 'Оставить заявку';
+      alert("Не получилось отправить заявку. Напишите нам в Telegram 🙏");
+      if (btn) btn.textContent = originalText || "Оставить заявку";
     } finally {
-      btn?.removeAttribute('disabled');
+      btn?.removeAttribute("disabled");
     }
   });
 })();
-
-
-
-

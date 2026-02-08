@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { name, phone, channel, page, hp } = req.body || {};
+    const { name, phone, channel, page, hp, service } = req.body || {};
 
     // антиспам: если боты заполнили скрытое поле — делаем вид что ок
     if (hp) return res.status(200).json({ ok: true });
@@ -24,6 +24,7 @@ export default async function handler(req, res) {
       "📩 Новая заявка с сайта ORION\n\n" +
       `👤 Имя: ${name}\n` +
       `📞 Телефон: ${phone}\n` +
+      `🎛 Услуга: ${service || "-"}\n` +
       `💬 Удобнее: ${channel || "-"}\n` +
       `📄 Страница: ${page || "-"}\n` +
       `⏱ ${new Date().toLocaleString("ru-RU")}`;
