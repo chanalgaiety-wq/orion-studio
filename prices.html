@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ORION | Цены</title>
+  <meta name="description" content="Цены студии звукозаписи ORION: запись, сведение, мастеринг, продакшн." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <!-- HEADER (как на главной) -->
+ <header class="header">
+  <div class="header__inner">
+
+    <a class="brand" href="index.html" aria-label="ORION — на главную">
+      <img class="brand__logo" src="img/logo.png" alt="ORION Recording Studio" />
+      <div class="brand__text">
+        <div class="brand__name">ORION</div>
+        <div class="brand__sub">Recording Studio</div>
+      </div>
+    </a>
+
+    <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav nav--main" id="nav" aria-label="Главная навигация">
+      <a href="index.html" class="nav__link">Главная</a>
+      <a href="prices.html" class="nav__link">Цены</a>
+      <a href="contacts.html" class="nav__link">Контакты</a>
+    </nav>
+
+    <div class="header__actions">
+    <a class="header__phone" href="tel:+79789103608" aria-label="Позвонить">
+    +7 (978) 910-36-08
+    <a class="btn btn--small header__cta" href="#" data-lead-open>Записаться</a>
+  </a>
+</div>
+
+  </div>
+</header>
+
+  <main>
+    <section class="section prices">
+      <div class="container">
+        <div class="prices__head">
+          <h1 class="prices__title">Сколько стоит записать трек в студии звукозаписи</h1>
+          <p class="prices__subtitle">
+            Выбирай услугу. Если не уверен(а) что нужно, напиши нам, подберём оптимально.
+          </p>
+        </div>
+
+        <h2 class="prices__h2">Услуги</h2>
+
+        <!-- === 1) ВЕРХНИЕ 4 (как на скрине 1) === -->
+        <div class="price-grid">
+          <article class="price-card card" data-service>
+            <div class="price-card__icon" aria-hidden="true">
+              <!-- микрофон -->
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v5a3 3 0 0 0 3 3Z" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M7 11a5 5 0 0 0 10 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M12 16v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M9 20h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <h3 class="price-card__title">Запись в студии</h3>
+            <div class="price-card__price">от 4 000 ₽ <span>/ час</span></div>
+
+            <ul class="price-card__list">
+              <li>Пункт 1</li>
+              <li>Пункт 2</li>
+              <li>Пункт 3</li>
+            </ul>
+            <div class="price-card__block">
+                 <div class="price-card__block-title">Вы получаете:</div>
+                <p class="price-card__block-text">Текст… (потом заменишь)</p>
+                </div>
+            <a class="btn price-card__btn" href="#" data-lead-open>Оставить заявку</a>
+          </article>
+
+          <article class="price-card card" data-service>
+            <div class="price-card__icon" aria-hidden="true">
+              <!-- фейдеры -->
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M6 4v16M12 4v16M18 4v16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M4 9h4M10 15h4M16 11h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <h3 class="price-card__title">Готовый трек “Бюджет”</h3>
+            <div class="price-card__price">11 000 ₽</div>
+
+            <ul class="price-card__list">
+              <li>Пункт 1</li>
+              <li>Пункт 2</li>
+              <li>Пункт 3</li>
+            </ul>
+            <div class="price-card__block">
+                <div class="price-card__block-title">Вы получаете:</div>
+                 <p class="price-card__block-text">Текст… (потом заменишь)</p>
+                </div>
+            <a class="btn price-card__btn" href="#" data-lead-open>Оставить заявку</a>
+          </article>
+
+          <article class="price-card card" data-service>
+            <div class="price-card__icon" aria-hidden="true">
+              <!-- волна -->
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M3 12c2.5 0 2.5-6 5-6s2.5 12 5 12 2.5-6 5-6 2.5 0 3 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <h3 class="price-card__title">“Радио-формат” с минусовкой</h3>
+            <div class="price-card__price">26 000 ₽</div>
+
+            <ul class="price-card__list">
+              <li>Пункт 1</li>
+              <li>Пункт 2</li>
+              <li>Пункт 3</li>
+            </ul>
+            <div class="price-card__block">
+                <div class="price-card__block-title">Вы получаете:</div>
+            <p class="price-card__block-text">Текст… (потом заменишь)</p>
+                </div>
+            <a class="btn price-card__btn" href="#" data-lead-open>Оставить заявку</a>
+          </article>
+
+          <article class="price-card card price-card--top" data-service>
+            <div class="price-card__badge">TOP</div>
+
+            <div class="price-card__icon" aria-hidden="true">
+              <!-- нота -->
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M10 18a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M14 16V6l7-2v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M19 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+            </div>
+
+            <h3 class="price-card__title">“Радио-формат” с мультитреком</h3>
+            <div class="price-card__price">120 000 ₽</div>
+
+            <ul class="price-card__list">
+              <li>Пункт 1</li>
+              <li>Пункт 2</li>
+              <li>Пункт 3</li>
+            </ul>
+            <div class="price-card__block">
+             <div class="price-card__block-title">Вы получаете:</div>
+            <p class="price-card__block-text">Текст… (потом заменишь)</p>
+            </div>
+            <a class="btn price-card__btn" href="#" data-lead-open>Оставить заявку</a>
+          </article>
+        </div>
+
+        <!-- === 2) НИЖНИЕ 4 (как на скрине 2, с блоками текста) === -->
+        <div class="price-grid" style="margin-top:14px;">
+          <article class="price-card card" data-service>
+            <div class="price-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M6 20V4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M6 7h9a3 3 0 0 1 0 6H6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <h3 class="price-card__title">Написание песни</h3>
+            <div class="price-card__price">80 000 ₽</div>
+
+            <ul class="price-card__list">
+              <li>Пункт 1</li>
+              <li>Пункт 2</li>
+              <li>Пункт 3</li>
+            </ul>
+
+            <div class="price-card__block">
+              <div class="price-card__block-title">Вы получаете:</div>
+              <p class="price-card__block-text">Текст…</p>
+            </div>
+
+            <a class="btn price-card__btn" href="#" data-lead-open>Оставить заявку</a>
+          </article>
+
+          <article class="price-card card" data-service>
+            <div class="price-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 16c4-10 12-10 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M6 16v4M18 16v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <h3 class="price-card__title">Написание аранжировки</h3>
+            <div class="price-card__price">60 000 ₽</div>
+
+            <ul class="price-card__list">
+              <li>Пункт 1</li>
+              <li>Пункт 2</li>
+              <li>Пункт 3</li>
+            </ul>
+
+            <div class="price-card__block">
+              <div class="price-card__block-title">Вы получаете:</div>
+              <p class="price-card__block-text">Текст…</p>
+            </div>
+
+            <a class="btn price-card__btn" href="#" data-lead-open>Оставить заявку</a>
+          </article>
+
+          <article class="price-card card" data-service>
+            <div class="price-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 12h4l2-4 4 8 2-4h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <h3 class="price-card__title">Сведение песни (вокал + минус)</h3>
+            <div class="price-card__price">15 000 ₽</div>
+
+            <ul class="price-card__list">
+              <li>Пункт 1</li>
+              <li>Пункт 2</li>
+              <li>Пункт 3</li>
+            </ul>
+
+            <div class="price-card__block">
+              <div class="price-card__block-title">Вы получаете:</div>
+              <p class="price-card__block-text">Текст…</p>
+            </div>
+
+           <a class="btn price-card__btn" href="#" data-lead-open>Оставить заявку</a>
+          </article>
+
+          <article class="price-card card" data-service>
+            <div class="price-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M7 7h10M7 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <h3 class="price-card__title">Сведение и мастеринг (радиоформат)</h3>
+            <div class="price-card__price">45 000 ₽</div>
+
+            <ul class="price-card__list">
+              <li>Пункт 1</li>
+              <li>Пункт 2</li>
+              <li>Пункт 3</li>
+            </ul>
+
+            <div class="price-card__block">
+              <div class="price-card__block-title">Вы получаете:</div>
+              <p class="price-card__block-text">Текст…</p>
+            </div>
+
+            <a class="btn price-card__btn" href="#" data-lead-open>Оставить заявку</a>
+          </article>
+        </div>
+
+        <div class="prices__cta card">
+          <div class="prices__cta-text">
+            <h3>Нужен расчёт под твой трек?</h3>
+            <p>Опиши задачу: жанр, референсы, сроки. Мы предложим оптимальный вариант.</p>
+          </div>
+          <div class="prices__cta-actions">
+            <a class="btn btn--ghost" href="contacts.html">Связаться</a>
+            <a class="btn btn--ghost" href="index.html#portfolio">Послушать портфолио</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+
+    <a class="footer__brand" href="index.html" aria-label="ORION — на главную">
+      <img class="footer__logo" src="img/logo.png" alt="ORION Recording Studio">
+      <div class="footer__brandtext">
+        <div class="footer__name">ORION</div>
+        <div class="footer__sub">Recording Studio</div>
+      </div>
+    </a>
+
+    <div class="footer__right">
+      <nav class="footer__links" aria-label="Ссылки">
+        <a href="prices.html">Цены</a>
+        <a href="contacts.html">Контакты</a>
+        <a href="politika.html">Политика конфиденциальности</a>
+      </nav>
+
+     <div class="footer__copy">
+  © 2020–2026 ORION Studio<br>
+  <span class="footer__rights">Все права защищены</span>
+</div>
+    </div>
+
+  </div>
+</footer>
+
+  <!-- LEAD MODAL -->
+  <div class="modal" id="leadModal" aria-hidden="true">
+    <div class="modal__backdrop" data-lead-close></div>
+
+    <div class="modal__dialog modal__dialog--lead" role="dialog" aria-label="Оставить заявку">
+      <button class="modal__close" type="button" data-lead-close aria-label="Закрыть">✕</button>
+
+      <div class="lead">
+        <div class="lead__media" aria-hidden="true">
+          <img src="img/lead-photo.jpg" alt="">
+        </div>
+
+        <div class="lead__content">
+          <h3 class="lead__title">Оставьте заявку и мы свяжемся с вами!</h3>
+
+          <form data-lead-form>
+            <input type="text" name="hp" autocomplete="off" tabindex="-1"
+                   style="position:absolute; left:-9999px; opacity:0; height:0;">
+
+            <input name="name" placeholder="Как вас зовут?" required>
+            <input name="phone" placeholder="+7 (999) 999-9999" required>
+
+            <label class="form__label">Как удобнее связаться?</label>
+            <select name="channel">
+              <option value="Telegram">Telegram</option>
+              <option value="VK">VK</option>
+              <option value="Звонок">Звонок</option>
+            </select>
+
+            <label class="agree">
+              <input type="checkbox" required>
+              <span>Соглашаюсь с условиями <a href="politika.html" target="_blank">политики конфиденциальности</a></span>
+            </label>
+
+            <button class="btn" type="submit">Оставить заявку</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/script.js"></script>
+
+</body>
+</html>
