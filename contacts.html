@@ -12,35 +12,36 @@
 
   <!-- HEADER -->
   <header class="header">
-  <div class="header__inner">
+    <div class="header__inner">
 
-    <a class="brand" href="index.html" aria-label="ORION — на главную">
-      <img class="brand__logo" src="img/logo.png" alt="ORION Recording Studio" />
-      <div class="brand__text">
-        <div class="brand__name">ORION</div>
-        <div class="brand__sub">Recording Studio</div>
+      <a class="brand" href="index.html" aria-label="ORION — на главную">
+        <img class="brand__logo" src="img/logo.png" alt="ORION Recording Studio" />
+        <div class="brand__text">
+          <div class="brand__name">ORION</div>
+          <div class="brand__sub">Recording Studio</div>
+        </div>
+      </a>
+
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav nav--main" id="nav" aria-label="Главная навигация">
+        <a href="index.html" class="nav__link">Главная</a>
+        <a href="prices.html" class="nav__link">Цены</a>
+        <a href="contacts.html" class="nav__link">Контакты</a>
+      </nav>
+
+      <!-- ВАЖНО: без <a> внутри <a> -->
+      <div class="header__actions">
+        <a class="header__phone" href="tel:+79789103608" aria-label="Позвонить">
+          +7 (978) 910-36-08
+        </a>
+        <a class="btn btn--small header__cta" href="#" data-lead-open>Записаться</a>
       </div>
-    </a>
 
-    <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-
-    <nav class="nav nav--main" id="nav" aria-label="Главная навигация">
-      <a href="index.html" class="nav__link">Главная</a>
-      <a href="prices.html" class="nav__link">Цены</a>
-      <a href="contacts.html" class="nav__link">Контакты</a>
-    </nav>
-
-    <div class="header__actions">
-    <a class="header__phone" href="tel:+79789103608" aria-label="Позвонить">
-    +7 (978) 910-36-08
-    <a class="btn btn--small header__cta" href="#" data-lead-open>Записаться</a>
-  </a>
-</div>
-
-  </div>
-</header>
+    </div>
+  </header>
 
   <main>
     <section class="section contacts">
@@ -83,91 +84,94 @@
             </ul>
 
             <div class="contacts-actions">
-              <a class="btn" href="https://t.me/Studio1ORION" target="_blank">Написать в Telegram</a>
-              <a class="btn btn--ghost" href="https://vk.com/orionrec" target="_blank">Перейти в VK</a>
+              <a class="btn" href="https://t.me/Studio1ORION" target="_blank" rel="noopener">Написать в Telegram</a>
+              <a class="btn btn--ghost" href="https://vk.com/orionrec" target="_blank" rel="noopener">Перейти в VK</a>
             </div>
           </div>
 
           <!-- ПРАВАЯ КОЛОНКА -->
           <div class="contacts-map card">
             <iframe
-  src="https://yandex.ru/map-widget/v1/?ll=33.343747%2C45.190896&z=16&mode=search&oid=238571213083&ol=biz"
-  frameborder="0"
-  allowfullscreen
-  loading="lazy"
-  aria-label="Карта студии ORION">
-</iframe>
+              src="https://yandex.ru/map-widget/v1/?ll=33.343747%2C45.190896&z=16&mode=search&oid=238571213083&ol=biz"
+              frameborder="0"
+              allowfullscreen
+              loading="lazy"
+              aria-label="Карта студии ORION">
+            </iframe>
+          </div>
 
         </div>
       </div>
     </section>
   </main>
 
-<footer class="footer">
-  <div class="container footer__inner">
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
 
-    <a class="footer__brand" href="index.html" aria-label="ORION — на главную">
-      <img class="footer__logo" src="img/logo.png" alt="ORION Recording Studio">
-      <div class="footer__brandtext">
-        <div class="footer__name">ORION</div>
-        <div class="footer__sub">Recording Studio</div>
+      <a class="footer__brand" href="index.html" aria-label="ORION — на главную">
+        <img class="footer__logo" src="img/logo.png" alt="ORION Recording Studio">
+        <div class="footer__brandtext">
+          <div class="footer__name">ORION</div>
+          <div class="footer__sub">Recording Studio</div>
+        </div>
+      </a>
+
+      <div class="footer__right">
+        <nav class="footer__links" aria-label="Ссылки">
+          <a href="prices.html">Цены</a>
+          <a href="contacts.html">Контакты</a>
+          <a href="politika.html">Политика конфиденциальности</a>
+        </nav>
+
+        <div class="footer__copy">© <span id="year"></span> ORION Studio</div>
       </div>
-    </a>
 
-    <div class="footer__right">
-      <nav class="footer__links" aria-label="Ссылки">
-        <a href="prices.html">Цены</a>
-        <a href="contacts.html">Контакты</a>
-        <a href="politika.html">Политика конфиденциальности</a>
-      </nav>
-
-      <div class="footer__copy">© <span id="year"></span> ORION Studio</div>
     </div>
+  </footer>
 
-  </div>
-</footer>
+  <!-- LEAD MODAL -->
+  <div class="modal" id="leadModal" aria-hidden="true">
+    <div class="modal__backdrop" data-lead-close></div>
 
-<!-- LEAD MODAL -->
-<div class="modal" id="leadModal" aria-hidden="true">
-  <div class="modal__backdrop" data-lead-close></div>
+    <div class="modal__dialog modal__dialog--lead" role="dialog" aria-label="Оставить заявку">
+      <button class="modal__close" type="button" data-lead-close aria-label="Закрыть">✕</button>
 
-  <div class="modal__dialog modal__dialog--lead" role="dialog" aria-label="Оставить заявку">
-    <button class="modal__close" type="button" data-lead-close aria-label="Закрыть">✕</button>
+      <div class="lead">
+        <div class="lead__media" aria-hidden="true">
+          <img src="img/lead-photo.jpg" alt="">
+        </div>
 
-    <div class="lead">
-      <div class="lead__media" aria-hidden="true">
-        <!-- поставь свою картинку или убери блок целиком -->
-        <img src="img/lead-photo.jpg" alt="">
+        <div class="lead__content">
+          <h3 class="lead__title">Оставьте заявку и мы свяжемся с вами!</h3>
+
+          <form data-lead-form>
+            <input type="text" name="hp" autocomplete="off" tabindex="-1"
+                   style="position:absolute; left:-9999px; opacity:0; height:0;">
+
+            <input name="name" placeholder="Как вас зовут?" required>
+            <input name="phone" placeholder="+7 (999) 999-9999" required>
+
+            <label class="form__label">Как удобнее связаться?</label>
+            <select name="channel">
+              <option value="Telegram">Telegram</option>
+              <option value="VK">VK</option>
+              <option value="Звонок">Звонок</option>
+            </select>
+
+            <label class="agree">
+              <input type="checkbox" required>
+              <span>Соглашаюсь с условиями <a href="politika.html" target="_blank">политики конфиденциальности</a></span>
+            </label>
+
+            <button class="btn" type="submit">Оставить заявку</button>
+          </form>
+        </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Скрипт только внизу -->
   <script src="js/script.js"></script>
-
-      <div class="lead__content">
-        <h3 class="lead__title">Оставьте заявку и мы свяжемся с вами!</h3>
-
-        <form data-lead-form>
-          <input type="text" name="hp" autocomplete="off" tabindex="-1"
-                 style="position:absolute; left:-9999px; opacity:0; height:0;">
-
-          <input name="name" placeholder="Как вас зовут?" required>
-          <input name="phone" placeholder="+7 (999) 999-9999" required>
-
-          <label class="form__label">Как удобнее связаться?</label>
-          <select name="channel">
-            <option value="Telegram">Telegram</option>
-            <option value="VK">VK</option>
-            <option value="Звонок">Звонок</option>
-          </select>
-
-          <label class="agree">
-            <input type="checkbox" required>
-            <span>Соглашаюсь с условиями <a href="politika.html" target="_blank">политики конфиденциальности</a></span>
-          </label>
-
-          <button class="btn" type="submit">Оставить заявку</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
 </body>
 </html>
