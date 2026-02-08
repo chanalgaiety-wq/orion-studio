@@ -51,9 +51,53 @@ img{ max-width: 100%; display: block; }
   width: min(1120px, calc(100% - 40px));
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: auto 1fr auto; /* ✅ ВАЖНО */
   align-items: center;
   gap: 14px;
+}
+
+.header__socials{
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.header__actions{
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: nowrap; /* 🔥 важно */
+}
+
+@media (max-width: 760px){
+  .header__phone{ display: none; }
+}
+
+.social{
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  transition: background .15s ease, transform .15s ease;
+}
+
+.social__icon{
+  width: 18px;
+  height: 18px;
+  fill: rgba(255,255,255,0.85);
+}
+
+.social:hover{
+  background: rgba(255,255,255,0.14);
+  transform: translateY(-1px);
+}
+
+.social:hover .social__icon{
+  fill: #fff;
 }
 
 .brand{
@@ -484,24 +528,6 @@ img{ max-width: 100%; display: block; }
 .cta__text{ margin: 8px 0 0; color: var(--muted); }
 .cta__actions{ display: flex; gap: 10px; flex-wrap: wrap; }
 
-/* FOOTER */
-.footer{
-  border-top: 1px solid var(--line);
-  padding: 18px 0;
-  color: var(--muted);
-}
-.footer__row{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.footer__links{ display: flex; gap: 12px; }
-.footer__links a:hover{ color: var(--text); }
-
-
-
 /* === ABOUT right column wrapper === */
 .about-right{
   display: grid;
@@ -524,14 +550,14 @@ img{ max-width: 100%; display: block; }
   background: rgba(0,0,0,0.15);
 }
 
-/* === PEEK CAROUSEL (как на картинке 2) === */
+/* === PEEK CAROUSEL (clean mobile) === */
 .carousel{ position: relative; user-select: none; }
 .carousel__viewport{ overflow: hidden; padding: 6px 0 14px; }
 
 .carousel__track{
   display: flex;
   gap: 14px;
-  padding: 0 56px;                 /* края соседних видны */
+  padding: 0 56px; /* края соседних видны на десктопе */
   overflow-x: auto;
   scroll-behavior: smooth;
   scrollbar-width: none;
@@ -539,31 +565,31 @@ img{ max-width: 100%; display: block; }
 .carousel__track::-webkit-scrollbar{ display:none; }
 
 .carousel__slide{
-  flex: 0 0 78%;
-  max-width: 78%;
-  border: 1px solid var(--line);
+  flex: 0 0 42%;
+  max-width: 42%;
+  aspect-ratio: 3 / 4;
   border-radius: 18px;
-  background: rgba(255,255,255,0.04);
-  box-shadow: var(--shadow);
   overflow: hidden;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
   cursor: pointer;
-  padding: 0;
-  transform: scale(0.92);
-  opacity: 0.75;
+  transform: scale(0.88);
+  opacity: 0.45;
   transition: transform .35s ease, opacity .35s ease, filter .35s ease;
 }
+
 .carousel__slide.is-active{
   transform: scale(1);
   opacity: 1;
   filter: saturate(1.05);
 }
 
-/* было: ..carousel__slide img */
 .carousel__slide img{
   width: 100%;
-  height: 320px;
-  object-fit: contain;
-  background: rgba(255,255,255,0.04);
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   display: block;
 }
 
@@ -608,28 +634,26 @@ img{ max-width: 100%; display: block; }
   border-color: transparent;
 }
 
+/* адаптив */
 @media (max-width: 980px){
-  .carousel__slide{ flex-basis: 86%; max-width: 86%; }
-  .carousel__slide img{ height: 280px; }
+  .carousel__slide{ flex-basis: 70%; max-width: 70%; }
 }
+
 @media (max-width: 540px){
   .carousel__track{ padding: 0 18px; }
-  .carousel__nav{ display:none; }   /* на телефоне свайпом */
+  .carousel__nav{ display:none; } /* свайп */
   .carousel__slide{ flex-basis: 92%; max-width: 92%; }
-  .carousel__slide img{ height: 240px; }
-}
-/* Центрируем контент правой колонки About */
-.about-right{
-  justify-items: center;
 }
 
-/* Чтобы карусель не “растекалась” и была по центру */
+/* центрирование правой колонки */
+.about-right{
+  display: flex;
+  justify-content: center;
+}
 .about-right .carousel{
   width: 100%;
-  max-width: 520px;   /* можешь 560/600 — как нравится */
-  margin: 0 auto;
+  max-width: 480px;
 }
-
 
 
 /* ===== PRICES PAGE ===== */
@@ -874,18 +898,10 @@ img{ max-width: 100%; display: block; }
   }
 }
 
-
-
-
-
-
-
-
-
 /* ===== FOOTER (brand left, links right) ===== */
 .footer{
   border-top: 1px solid var(--line);
-  padding: 18px 0;
+  padding: 70px 0;
   color: var(--muted);
 }
 
@@ -903,7 +919,7 @@ img{ max-width: 100%; display: block; }
   gap: 12px;
   text-decoration: none;
   color: var(--text);
-  padding: 10px 12px;
+  padding: 5px 12px;
   border-radius: 14px;
   border: 1px solid transparent;
 }
@@ -913,9 +929,10 @@ img{ max-width: 100%; display: block; }
 }
 
 .footer__logo{
-  width: 56px;      /* “большой слева” */
-  height: 56px;
+  width: 100px;      /* можно 56/72/90 */
+  height: 100px;     /* главное — не 20px */
   object-fit: contain;
+  flex: 0 0 auto;   /* чтобы flex не сжимал */
 }
 
 .footer__brandtext{ display: grid; gap: 2px; }
@@ -1023,14 +1040,18 @@ img{ max-width: 100%; display: block; }
 
 .lead__content{
   padding: 26px 22px;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 16px;
-  align-content: start;
+  height: 100%;
 }
 
-.lead__title{
-  margin: 0;
-  font-size: 26px;
+.lead__content form[data-lead-form]{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;           /* форма займет высоту, появится “низ” */
+  min-height: 0;
 }
 
 /* поля */
@@ -1045,10 +1066,6 @@ img{ max-width: 100%; display: block; }
   outline: none;
 }
 
-/* отступ между инпутами (а не для select, чтобы не "съедало" лейбл) */
-.lead__content input{
-  margin-top: 4px;
-}
 
 /* лейбл над select */
 .form__label{
