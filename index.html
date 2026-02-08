@@ -9,36 +9,38 @@
 </head>
 
 <body>
-<header class="header">
-  <div class="header__inner">
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header__inner">
 
-    <a class="brand" href="index.html" aria-label="ORION — на главную">
-      <img class="brand__logo" src="img/logo.png" alt="ORION Recording Studio" />
-      <div class="brand__text">
-        <div class="brand__name">ORION</div>
-        <div class="brand__sub">Recording Studio</div>
+      <a class="brand" href="index.html" aria-label="ORION — на главную">
+        <img class="brand__logo" src="img/logo.png" alt="ORION Recording Studio" />
+        <div class="brand__text">
+          <div class="brand__name">ORION</div>
+          <div class="brand__sub">Recording Studio</div>
+        </div>
+      </a>
+
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav nav--main" id="nav" aria-label="Главная навигация">
+        <a href="index.html" class="nav__link">Главная</a>
+        <a href="prices.html" class="nav__link">Цены</a>
+        <a href="contacts.html" class="nav__link">Контакты</a>
+      </nav>
+
+      <!-- ВАЖНО: никаких <a> внутри <a> -->
+      <div class="header__actions">
+        <a class="header__phone" href="tel:+79789103608" aria-label="Позвонить">
+          +7 (978) 910-36-08
+        </a>
+        <a class="btn btn--small header__cta" href="#" data-lead-open>Записаться</a>
       </div>
-    </a>
 
-    <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-
-    <nav class="nav nav--main" id="nav" aria-label="Главная навигация">
-      <a href="index.html" class="nav__link">Главная</a>
-      <a href="prices.html" class="nav__link">Цены</a>
-      <a href="contacts.html" class="nav__link">Контакты</a>
-    </nav>
-
-    <div class="header__actions">
-    <a class="header__phone" href="tel:+79789103608" aria-label="Позвонить">
-    +7 (978) 910-36-08
-    <a class="btn btn--small header__cta" href="#" data-lead-open>Записаться</a>
-  </a>
-</div>
-
-  </div>
-</header>
+    </div>
+  </header>
 
   <main>
     <!-- HERO -->
@@ -46,7 +48,6 @@
       <div class="hero__bg" role="img" aria-label="ORION Studio"></div>
       <div class="hero__overlay"></div>
 
-      <!-- картинка 6 (вставка в hero) -->
       <img class="hero__cutout" src="img/singer-cutout.png" alt="" aria-hidden="true">
 
       <div class="container hero__content">
@@ -61,73 +62,72 @@
       </div>
     </section>
 
- <!-- ABOUT -->
-<section class="section" id="about">
-  <div class="container">
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
 
-    <!-- 2 колонки: текст слева, продюсер справа -->
-    <div class="about-grid">
-      <div>
-        <h2 class="section__title">О студии</h2>
+        <div class="about-grid">
+          <div>
+            <h2 class="section__title">О студии</h2>
 
-        <p class="section__text">
-          ORION — студия, где мы доводим материал до релизного уровня: от записи вокала и инструментов до финального мастеринга.
-          Работаем бережно к артисту и строго к качеству, чтобы трек уверенно звучал на любых устройствах.
-        </p>
-        <p class="section__text">
-          Наш музыкальный продюсер — <b>Манучехр Ахмадзоде</b>: <b>20 лет опыта</b>, заслуженный музыкант, композитор и музыкальный продюсер.
-          Также работаем с зарубежными исполнителями и удалённо, если вы не в нашем городе.
-        </p>
+            <p class="section__text">
+              ORION — студия, где мы доводим материал до релизного уровня: от записи вокала и инструментов до финального мастеринга.
+              Работаем бережно к артисту и строго к качеству, чтобы трек уверенно звучал на любых устройствах.
+            </p>
+            <p class="section__text">
+              Наш музыкальный продюсер — <b>Манучехр Ахмадзоде</b>: <b>20 лет опыта</b>, заслуженный музыкант, композитор и музыкальный продюсер.
+              Также работаем с зарубежными исполнителями и удалённо, если вы не в нашем городе.
+            </p>
 
-        <ul class="facts">
-          <li><span class="facts__k">Продюсер:</span> Манучехр Ахмадзоде</li>
-          <li><span class="facts__k">Опыт:</span> 20 лет</li>
-          <li><span class="facts__k">Формат:</span> офлайн и удалённо</li>
-        </ul>
+            <ul class="facts">
+              <li><span class="facts__k">Продюсер:</span> Манучехр Ахмадзоде</li>
+              <li><span class="facts__k">Опыт:</span> 20 лет</li>
+              <li><span class="facts__k">Формат:</span> офлайн и удалённо</li>
+            </ul>
 
-        <div class="mini-actions">
-          <a class="btn btn--small" href="prices.html">Посмотреть цены</a>
-          <a class="btn btn--small btn--ghost" href="contacts.html">Связаться</a>
-        </div>
-      </div>
+            <div class="mini-actions">
+              <a class="btn btn--small" href="prices.html">Посмотреть цены</a>
+              <a class="btn btn--small btn--ghost" href="contacts.html">Связаться</a>
+            </div>
+          </div>
 
-      <div class="about-right">
-        <figure class="card producer-card">
-          <img src="img/producer.png" alt="Манучехр Ахмадзоде — музыкальный продюсер ORION" />
-          <figcaption>Манучехр Ахмадзоде — музыкальный продюсер ORION</figcaption>
-        </figure>
-      </div>
-    </div>
-
-    <!-- КАРУСЕЛЬ ПО ЦЕНТРУ СЕКЦИИ (ВНЕ about-grid) -->
-    <div class="about-carousel">
-      <div class="carousel" id="studioCarousel">
-        <div class="carousel__viewport">
-          <div class="carousel__track">
-            <button class="carousel__slide" type="button">
-              <img src="img/studio1.jpg" alt="Студия ORION — зал и инструменты">
-            </button>
-
-            <button class="carousel__slide" type="button">
-              <img src="img/studio2.png" alt="ORION — оборудование и атмосфера">
-            </button>
-
-            <button class="carousel__slide" type="button">
-              <img src="img/singer_studio.png" alt="ORION — запись вокала">
-            </button>
+          <div class="about-right">
+            <figure class="card producer-card">
+              <img src="img/producer.png" alt="Манучехр Ахмадзоде — музыкальный продюсер ORION" />
+              <figcaption>Манучехр Ахмадзоде — музыкальный продюсер ORION</figcaption>
+            </figure>
           </div>
         </div>
 
-        <button class="carousel__nav carousel__nav--prev" type="button" aria-label="Назад">‹</button>
-        <button class="carousel__nav carousel__nav--next" type="button" aria-label="Вперёд">›</button>
+        <!-- КАРУСЕЛЬ -->
+        <div class="about-carousel">
+          <div class="carousel" id="studioCarousel">
+            <div class="carousel__viewport">
+              <div class="carousel__track">
+                <button class="carousel__slide" type="button">
+                  <img src="img/studio1.jpg" alt="Студия ORION — зал и инструменты">
+                </button>
 
-        <div class="carousel__dots" aria-label="Навигация по слайдам"></div>
+                <button class="carousel__slide" type="button">
+                  <img src="img/studio2.png" alt="ORION — оборудование и атмосфера">
+                </button>
+
+                <button class="carousel__slide" type="button">
+                  <img src="img/singer_studio.png" alt="ORION — запись вокала">
+                </button>
+              </div>
+            </div>
+
+            <button class="carousel__nav carousel__nav--prev" type="button" aria-label="Назад">‹</button>
+            <button class="carousel__nav carousel__nav--next" type="button" aria-label="Вперёд">›</button>
+
+            <div class="carousel__dots" aria-label="Навигация по слайдам"></div>
+          </div>
+        </div>
+
       </div>
-    </div>
+    </section>
 
-  </div>
-</section>
-    
     <!-- SHOWREEL -->
     <section class="section" id="showreel">
       <div class="container">
@@ -275,32 +275,33 @@
     </section>
   </main>
 
-<footer class="footer">
-  <div class="container footer__inner">
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
 
-    <a class="footer__brand" href="index.html" aria-label="ORION — на главную">
-      <img class="footer__logo" src="img/logo.png" alt="ORION Recording Studio">
-      <div class="footer__brandtext">
-        <div class="footer__name">ORION</div>
-        <div class="footer__sub">Recording Studio</div>
+      <a class="footer__brand" href="index.html" aria-label="ORION — на главную">
+        <img class="footer__logo" src="img/logo.png" alt="ORION Recording Studio">
+        <div class="footer__brandtext">
+          <div class="footer__name">ORION</div>
+          <div class="footer__sub">Recording Studio</div>
+        </div>
+      </a>
+
+      <div class="footer__right">
+        <nav class="footer__links" aria-label="Ссылки">
+          <a href="prices.html">Цены</a>
+          <a href="contacts.html">Контакты</a>
+          <a href="politika.html">Политика конфиденциальности</a>
+        </nav>
+
+        <div class="footer__copy">
+          © 2020–2026 ORION Studio<br>
+          <span class="footer__rights">Все права защищены</span>
+        </div>
       </div>
-    </a>
 
-    <div class="footer__right">
-      <nav class="footer__links" aria-label="Ссылки">
-        <a href="prices.html">Цены</a>
-        <a href="contacts.html">Контакты</a>
-        <a href="politika.html">Политика конфиденциальности</a>
-      </nav>
-
-     <div class="footer__copy">
-  © 2020–2026 ORION Studio<br>
-  <span class="footer__rights">Все права защищены</span>
-</div>
     </div>
-
-  </div>
-</footer>
+  </footer>
 
   <!-- MODAL VIDEO -->
   <div class="modal" id="videoModal" aria-hidden="true">
@@ -312,48 +313,47 @@
   </div>
 
   <!-- LEAD MODAL -->
-<div class="modal" id="leadModal" aria-hidden="true">
-  <div class="modal__backdrop" data-lead-close></div>
+  <div class="modal" id="leadModal" aria-hidden="true">
+    <div class="modal__backdrop" data-lead-close></div>
 
-  <div class="modal__dialog modal__dialog--lead" role="dialog" aria-label="Оставить заявку">
-    <button class="modal__close" type="button" data-lead-close aria-label="Закрыть">✕</button>
+    <div class="modal__dialog modal__dialog--lead" role="dialog" aria-label="Оставить заявку">
+      <button class="modal__close" type="button" data-lead-close aria-label="Закрыть">✕</button>
 
-    <div class="lead">
-      <div class="lead__media" aria-hidden="true">
-        <!-- поставь свою картинку или убери блок целиком -->
-        <img src="img/lead-photo.jpg" alt="">
-      </div>
+      <div class="lead">
+        <div class="lead__media" aria-hidden="true">
+          <img src="img/lead-photo.jpg" alt="">
+        </div>
 
-  <script src="js/script.js"></script>
+        <div class="lead__content">
+          <h3 class="lead__title">Оставьте заявку и мы свяжемся с вами!</h3>
 
-      <div class="lead__content">
-        <h3 class="lead__title">Оставьте заявку и мы свяжемся с вами!</h3>
+          <form data-lead-form>
+            <input type="text" name="hp" autocomplete="off" tabindex="-1"
+                   style="position:absolute; left:-9999px; opacity:0; height:0;">
 
-        <form data-lead-form>
-          <input type="text" name="hp" autocomplete="off" tabindex="-1"
-                 style="position:absolute; left:-9999px; opacity:0; height:0;">
+            <input name="name" placeholder="Как вас зовут?" required>
+            <input name="phone" placeholder="+7 (999) 999-9999" required>
 
-          <input name="name" placeholder="Как вас зовут?" required>
-          <input name="phone" placeholder="+7 (999) 999-9999" required>
+            <label class="form__label">Как удобнее связаться?</label>
+            <select name="channel">
+              <option value="Telegram">Telegram</option>
+              <option value="VK">VK</option>
+              <option value="Звонок">Звонок</option>
+            </select>
 
-          <label class="form__label">Как удобнее связаться?</label>
-          <select name="channel">
-            <option value="Telegram">Telegram</option>
-            <option value="VK">VK</option>
-            <option value="Звонок">Звонок</option>
-          </select>
+            <label class="agree">
+              <input type="checkbox" required>
+              <span>Соглашаюсь с условиями <a href="politika.html" target="_blank">политики конфиденциальности</a></span>
+            </label>
 
-          <label class="agree">
-            <input type="checkbox" required>
-            <span>Соглашаюсь с условиями <a href="politika.html" target="_blank">политики конфиденциальности</a></span>
-          </label>
-
-          <button class="btn" type="submit">Оставить заявку</button>
-        </form>
+            <button class="btn" type="submit">Оставить заявку</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
+  <!-- ВАЖНО: скрипт только тут -->
+  <script src="js/script.js"></script>
 </body>
 </html>
-
