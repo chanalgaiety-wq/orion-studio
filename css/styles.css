@@ -1110,3 +1110,29 @@ img{ max-width: 100%; display: block; }
   background: #0b0d10;   /* твой --bg */
   color: rgba(255,255,255,0.92);
 }
+
+/* ===== VIDEO MODAL ONLY ===== */
+.modal--video{
+  padding: 24px;
+}
+
+.modal--video.is-open{
+  display: flex;              /* видео модалка: flex */
+  align-items: center;
+  justify-content: center;
+}
+
+.modal--video .modal__dialog{
+  width: min(980px, 100%);    /* шире чем lead */
+  margin: 0;                  /* убираем 6vh auto 0 */
+  max-height: calc(100vh - 48px);
+}
+
+.modal--video .modal__video{
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: calc(100vh - 120px);
+  background: #000;
+  object-fit: contain;
+}
