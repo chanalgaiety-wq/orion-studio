@@ -1077,3 +1077,19 @@ img{ max-width: 100%; display: block; }
   .lead{ grid-template-columns: 1fr; min-height: auto; }
   .lead__media{ display: none; }
 }
+
+/* ===== Select dark theme (best effort) ===== */
+.lead__content select{
+  background: rgba(0,0,0,0.35);
+  color: rgba(255,255,255,0.92);
+  border: 1px solid rgba(255,255,255,0.16);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* пункты списка: сработает в части браузеров */
+.lead__content select option{
+  background: #0b0d10;   /* твой --bg */
+  color: rgba(255,255,255,0.92);
+}
