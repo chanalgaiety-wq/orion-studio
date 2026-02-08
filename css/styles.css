@@ -1011,6 +1011,7 @@ img{ max-width: 100%; display: block; }
   grid-template-columns: 1fr 1fr;
   min-height: 520px;
 }
+
 .lead__media{
   background: rgba(255,255,255,0.03);
 }
@@ -1019,17 +1020,20 @@ img{ max-width: 100%; display: block; }
   height: 100%;
   object-fit: cover;
 }
+
 .lead__content{
   padding: 26px 22px;
   display: grid;
-  gap: 16px;              /* было 12 */
+  gap: 16px;
   align-content: start;
 }
+
 .lead__title{
   margin: 0;
   font-size: 26px;
 }
 
+/* поля */
 .lead__content input,
 .lead__content select{
   width: 100%;
@@ -1041,34 +1045,35 @@ img{ max-width: 100%; display: block; }
   outline: none;
 }
 
+/* отступ между инпутами (а не для select, чтобы не "съедало" лейбл) */
+.lead__content input{
+  margin-top: 4px;
+}
+
+/* лейбл над select */
 .form__label{
-  font-size: 13px;
-  color: var(--muted);
-  margin-top: 10px;       /* было 4 */
-  margin-bottom: 6px;
   display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.85);
+  margin-top: 10px;
+  margin-bottom: 8px;
 }
 
-.lead__content input,
-.lead__content select{
-  margin-top: 4px;        /* чтобы поля не липли к тексту */
-}
-
+/* checkbox */
 .agree{
-  margin-top: 6px;        /* отодвинем чекбокс вниз */
-  line-height: 1.35;
-}
-.agree{
+  margin-top: 6px;
   display: flex;
   gap: 10px;
   align-items: flex-start;
   color: var(--muted);
   font-size: 13px;
+  line-height: 1.35;
 }
 .agree a{ color: var(--text); text-decoration: underline; }
 .agree input{ width: 18px; height: 18px; margin-top: 2px; }
 
 @media (max-width: 860px){
   .lead{ grid-template-columns: 1fr; min-height: auto; }
-  .lead__media{ display: none; } /* на телефоне уберём фото */
+  .lead__media{ display: none; }
 }
