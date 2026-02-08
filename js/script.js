@@ -295,7 +295,9 @@ loadTrack(0);
         const titleEl = card?.querySelector(".price-card__title");
         serviceName = titleEl?.textContent?.trim() || "";
       }
-
+      // если услугу не нашли — ставим дефолт
+  if (!serviceName) serviceName = "Консультация";
+  
       setSelectedService(serviceName);
       openLeadModal();
       return;
